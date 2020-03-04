@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Apolo.Models
 {
-    public class User
+    public class Songs
     {
         [Key]
         public Guid Id { get; set; }
 
-        [Required(ErrorMessage = "Name of the user is obrigatory")]
+        [Required(ErrorMessage ="Name of the song is obrigatory")]
         public string Name { get; set; }
+
+        public IEnumerable<User> LikedBy { get; set; }
     }
 }
