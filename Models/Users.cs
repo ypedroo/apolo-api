@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Apolo.Models
 {
-    public class User
+    public class Users
     {
         [Key]
         public Guid Id { get; set; }

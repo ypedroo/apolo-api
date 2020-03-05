@@ -12,6 +12,6 @@ namespace Apolo.Models
         [Required(ErrorMessage ="Name of the song is obrigatory")]
         public string Name { get; set; }
 
-        public IEnumerable<User> LikedBy { get; set; }
+        public IEnumerable<Users> LikedBy { get; set; }
     }
 }
