@@ -1,24 +1,25 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Apolo.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace apolo
 {
     public class Startup
-    {        
+    {
         public void ConfigureServices(IServiceCollection services)
         {
             services
                 .AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("ApoloDB"))
                 .AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Apolo Api", Version = "v1" });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -29,6 +30,8 @@ namespace apolo
             }
 
             app.UseRouting();
+            app.UseSwagger();
+            app.UseSwaggerUi(c => c.SwaggerEndpoint) ;
 
             app.UseEndpoints(endpoints =>
             {
@@ -37,6 +40,8 @@ namespace apolo
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
+
+
         }
     }
 }
