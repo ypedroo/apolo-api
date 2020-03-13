@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace apolo
 {
@@ -31,7 +32,7 @@ namespace apolo
 
             app.UseRouting();
             app.UseSwagger();
-            app.UseSwaggerUi(c => c.SwaggerEndpoint) ;
+            app.UseSwaggerUI(c => c.SwaggerEndpoint) ;
 
             app.UseEndpoints(endpoints =>
             {
@@ -40,8 +41,6 @@ namespace apolo
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
-
-
         }
     }
 }
