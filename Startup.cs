@@ -14,7 +14,7 @@ namespace apolo
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("ApoloDB"))
+                .AddDbContext<DataContext>(opt => opt.UseSqlite("ApoloDB"))
                 .AddControllers();
             services.AddSwaggerGen(c =>
             {

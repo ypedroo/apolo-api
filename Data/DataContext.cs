@@ -5,6 +5,8 @@ namespace Apolo.Data
 {
     public class DataContext : DbContext
     {
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+            => options.UseSqlite(@"Data Source='C:\Databases\ApoloDB.db'");
         public DataContext(DbContextOptions options) : base(options)
         {
         }
