@@ -6,10 +6,12 @@ namespace Apolo.Data
     public class DataContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite(@"Data Source='C:\Databases\ApoloDB.db'");
+            => options.UseSqlite(@"Data Source='C:\database\ApoloDB.db'");
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Users>();
+            modelBuilder.Entity<Users>()
+                .Property(p => p.Id)
+                .IsRequired();
             modelBuilder.Entity<Songs>();
 
         }
