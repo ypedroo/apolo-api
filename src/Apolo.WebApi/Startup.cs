@@ -14,7 +14,7 @@ namespace Apolo.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddDbContext<DataContext>(opt => opt.UseSqlite("ApoloDB"))
+                .AddDbContext<DataContext>()
                 .AddControllers();
             services.AddSwaggerGen(c =>
             {
