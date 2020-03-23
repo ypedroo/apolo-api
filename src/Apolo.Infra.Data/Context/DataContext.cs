@@ -1,7 +1,6 @@
-﻿using Apolo.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Apolo.Data
+namespace Apolo.Infra.Data.Context
 {
     public class DataContext : DbContext
     {
@@ -18,5 +17,6 @@ namespace Apolo.Data
 
         public DbSet<Users> Users { get; set; }
         public DbSet<Songs> Songs { get; set; }
+    }
     }
 }
