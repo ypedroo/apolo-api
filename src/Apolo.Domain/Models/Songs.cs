@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Apolo.Models
+namespace Apolo.Domain.Models
 {
     public class Songs
     {

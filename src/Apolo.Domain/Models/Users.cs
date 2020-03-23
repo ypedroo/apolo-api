@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Apolo.Models
+namespace Apolo.Domain.Models
 {
     public class Users
     {

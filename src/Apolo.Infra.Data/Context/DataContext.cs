@@ -1,3 +1,4 @@
+using Apolo.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Apolo.Infra.Data.Context
