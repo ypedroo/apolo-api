@@ -31,7 +31,7 @@ namespace Apolo.WebApi
 
             app.UseRouting();
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Apolo API")) ;
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Apolo")) ;
         }
     }
 }
