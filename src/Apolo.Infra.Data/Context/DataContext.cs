@@ -19,5 +19,5 @@ namespace Apolo.Infra.Data.Context
         public DbSet<Users> Users { get; set; }
         public DbSet<Songs> Songs { get; set; }
     }
-    }
 }
+

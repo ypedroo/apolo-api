@@ -1,4 +1,4 @@
-using Apolo.Data;
+using Apolo.Infra.Data.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
