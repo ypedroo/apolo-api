@@ -16,6 +16,8 @@ namespace Apolo.WebApi
             services
                 .AddDbContext<DataContext>()
                 .AddControllers();
+                .services.AddScoped<IUnitOfWork, UnitOfWork>();
+                
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Apolo Api", Version = "v1" });
