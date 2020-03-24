@@ -11,6 +11,7 @@ using Apolo.Infra.Data.UnitOfWork;
 using Apolo.Domain.Commands;
 using Microsoft.Extensions.Configuration;
 using Apolo.Domain.Core.Commands;
+using MediatR;
 
 namespace Apolo.WebApi
 {
@@ -19,8 +20,8 @@ namespace Apolo.WebApi
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }
 
+        }
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
@@ -31,7 +32,7 @@ namespace Apolo.WebApi
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddMediatR(typeof(CommandBase));
-            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Apolo Api", Version = "v1" });
