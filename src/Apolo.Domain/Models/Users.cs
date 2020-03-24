@@ -6,7 +6,7 @@ namespace Apolo.Domain.Models
 {
     public class Users : Entity
     {
-        public Users(String name)
+        public Users(string name)
         {
             Id = Guid.NewGuid();
             Name = name;

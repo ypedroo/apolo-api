@@ -1,14 +1,11 @@
 using Apolo.Infra.Data.Context;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Apolo.Domain.Interfaces;
 using Apolo.Infra.Data.UnitOfWork;
-using Apolo.Domain.Commands;
 using Microsoft.Extensions.Configuration;
 using Apolo.Domain.Core.Commands;
 using MediatR;

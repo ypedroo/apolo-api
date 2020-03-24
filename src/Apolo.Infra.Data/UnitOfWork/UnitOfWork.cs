@@ -7,6 +7,7 @@ namespace Apolo.Infra.Data.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DataContext _context;
+        private IRepository
         // declare readonly repository here
 
         public UnitOfWork(DataContext context)

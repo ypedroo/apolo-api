@@ -11,6 +11,7 @@ namespace Apolo.Domain.Handlers
     public class CreateSongCommandHandler : IRequestHandler<CreateSongCommand, CommandResult>
     {
         private readonly IUnitOfWork _unityOfWork;
+        
         public CreateSongCommandHandler(IUnitOfWork unitOfWork)
         {
             _unityOfWork = unitOfWork;
@@ -21,7 +22,19 @@ namespace Apolo.Domain.Handlers
 
         private CommandResult CreateSong(CreateSongCommand request)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var newSong = new CreateSongCommand(
+                    request.Name,
+                    request.LikedBy
+                );
+
+                return CommandResult.Success();
+            }
+            catch (Exception ex)
+            {
+                return ex;
+            }
         }
     }
 }
