@@ -15,4 +15,4 @@ namespace Apolo.Domain.Commands
             .HasMinLen(Name, 3, "Name", "Name should have at least 3 chars")
         );
     }
-    
+}   
