@@ -1,31 +1,31 @@
 using System;
 using Apolo.Domain.Interfaces;
 using Apolo.Infra.Data.Context;
+using Apolo.Infra.Data.Repositories;
 
 namespace Apolo.Infra.Data.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DataContext _context;
-        private IRepository
-        // declare readonly repository here
+        private ISongRepository songRespository;
+        private IUserRepository userRespository;
 
         public UnitOfWork(DataContext context)
         {
             _context = context;
         }
 
-        //model to instiate repo from example code
-        // public IBankAccountRepository AccountRepository
-        // {
-        //     get
-        //     {
-        //         if (accountRepository == null)
-        //             accountRepository = new BankAccountRepository(_context);
+        public ISongRepository SongRespository
+        {
+            get
+            {
+                if (songRespository == null)
+                    songRespository = new SongRepository(_context);
 
-        //         return accountRepository;
-        //     }
-        // }
+                return songRespository;
+            }
+        }
 
         public int Commit()
         {

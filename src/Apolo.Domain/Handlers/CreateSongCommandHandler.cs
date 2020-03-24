@@ -29,6 +29,8 @@ namespace Apolo.Domain.Handlers
                     request.LikedBy
                 );
 
+                _unityOfWork.SongRespository.Add(newSong);
+
                 return CommandResult.Success();
             }
             catch (Exception ex)
