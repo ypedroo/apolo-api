@@ -6,6 +6,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using Apolo.Domain.Interfaces;
+using Apolo.Infra.Data.UnitOfWork;
+using Apolo.Domain.Commands;
 
 namespace Apolo.WebApi
 {
@@ -15,9 +18,11 @@ namespace Apolo.WebApi
         {
             services
                 .AddDbContext<DataContext>()
-                .AddControllers();
-            services
-                .AddScoped<IUnitOfWork, UnitOfWork>();
+                .AddControllers()
+                // .AddFlunt()
+                .AddMediatR(typeof(CreateUserCommand));
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
                 
             services.AddSwaggerGen(c =>
             {

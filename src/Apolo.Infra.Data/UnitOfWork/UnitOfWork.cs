@@ -1,9 +1,10 @@
 using System;
+using Apolo.Domain.Interfaces;
 using Apolo.Infra.Data.Context;
 
 namespace Apolo.Infra.Data.UnitOfWork
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly DataContext _context;
         // declare readonly repository here
