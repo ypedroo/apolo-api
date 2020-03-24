@@ -1,14 +1,16 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Apolo.Domain.Core.Models;
 
 namespace Apolo.Domain.Models
 {
-    public class Users
+    public class Users : Entity
     {
-        [Key]
-        public Guid Id { get; set; }
-
-        [Required(ErrorMessage = "Name of the user is obrigatory")]
+        public Users(String name)
+        {
+            Id = Guid.NewGuid();
+            Name = name;
+        }                
         public string Name { get; set; }
     }
 }

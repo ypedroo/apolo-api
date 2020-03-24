@@ -1,9 +1,11 @@
 using MediatR;
+using Flunt.Validations;
+using Flunt.Notifications;
 
 namespace Apolo.Domain.Core.Commands
 {
-    public abstract class CommandBase : IRequest<CommandResult>
+    public class CommandBase : Notifiable, IValidatable, IRequest<CommandResult>
     {
-        public abstract bool IsValid { get; }
+        public virtual void Validate(){}
     }
 }
