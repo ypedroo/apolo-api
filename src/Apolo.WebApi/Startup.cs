@@ -16,7 +16,8 @@ namespace Apolo.WebApi
             services
                 .AddDbContext<DataContext>()
                 .AddControllers();
-                .services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services
+                .AddScoped<IUnitOfWork, UnitOfWork>();
                 
             services.AddSwaggerGen(c =>
             {
