@@ -24,6 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Apolo.Infra.Data\Apolo.Infra.Data.csproj" />
     <ProjectReference Include="..\Apolo.Domain.Core\Apolo.Domain.Core.csproj" />
+    <ProjectReference Include="..\Apolo.Domain\Apolo.Domain.csproj" />
   </ItemGroup>
 
 </Project>

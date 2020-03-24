@@ -30,7 +30,7 @@ namespace Apolo.Domain.Handlers
                     request.LikedBy
                 );
 
-                _unityOfWork.songRepository.Add(newSong);
+                _unityOfWork.SongRepository.Add(newSong);
 
                 return CommandResult.Success();
             }
