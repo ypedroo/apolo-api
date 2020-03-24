@@ -4,8 +4,8 @@ namespace Apolo.Domain.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        IUserRepository userRepository { get; }
-        ISongRepository songRepository { get; }
+        // IUserRepository UserRepository { get; }
+        ISongRepository SongRepository { get; }
         //: each repository
         int Commit();
     }

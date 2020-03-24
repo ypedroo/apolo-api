@@ -16,7 +16,7 @@ namespace Apolo.Infra.Data.UnitOfWork
             _context = context;
         }
 
-        public ISongRepository SongRespository
+        public ISongRepository SongRepository
         {
             get
             {
