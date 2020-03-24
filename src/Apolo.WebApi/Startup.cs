@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using System;
 
 namespace Apolo.WebApi
 {
@@ -33,10 +34,20 @@ namespace Apolo.WebApi
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Apolo Api", Version = "v1" });
+                c.SwaggerDoc("v1",
+                        new OpenApiInfo
+                        {
+                            Title = "Apolo",
+                            Version = "v1.0",
+                            Description = "Exemplo de API REST criada com o ASP.NET Core 3.1 ",
+                            Contact = new OpenApiContact
+                            {
+                                Name = "Ynoa Pedro",
+                                Url = new Uri("https://github.com/ypedroo"),
+                            }
+                        });
             });
         }
-
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -44,7 +55,16 @@ namespace Apolo.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
+
             app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllers();
+                });
+
+
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Apolo"));
         }
