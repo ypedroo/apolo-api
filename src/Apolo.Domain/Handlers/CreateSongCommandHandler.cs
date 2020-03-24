@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Apolo.Domain.Commands;
 using Apolo.Domain.Core.Commands;
 using Apolo.Domain.Interfaces;
+using Apolo.Domain.Models;
 using MediatR;
 
 namespace Apolo.Domain.Handlers
@@ -24,12 +25,12 @@ namespace Apolo.Domain.Handlers
         {
             try
             {
-                var newSong = new CreateSongCommand(
+                var newSong = new Songs(
                     request.Name,
                     request.LikedBy
                 );
 
-                _unityOfWork.SongRespository.Add(newSong);
+                _unityOfWork.songRepository.Add(newSong);
 
                 return CommandResult.Success();
             }

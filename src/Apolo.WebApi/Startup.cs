@@ -1,14 +1,15 @@
+using MediatR;
 using Apolo.Infra.Data.Context;
+using Apolo.Infra.Data.UnitOfWork;
+using Apolo.Infra.Data.Repositories;
+using Apolo.Domain.Interfaces;
+using Apolo.Domain.Core.Commands;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Models;
-using Apolo.Domain.Interfaces;
-using Apolo.Infra.Data.UnitOfWork;
 using Microsoft.Extensions.Configuration;
-using Apolo.Domain.Core.Commands;
-using MediatR;
 
 namespace Apolo.WebApi
 {
@@ -27,7 +28,8 @@ namespace Apolo.WebApi
                 .AddDbContext<DataContext>()
                 .AddControllers();
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<ISongRepository, SongRepository>();
             services.AddMediatR(typeof(CommandBase));
 
             services.AddSwaggerGen(c =>
