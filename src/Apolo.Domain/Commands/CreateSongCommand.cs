@@ -6,7 +6,7 @@ using Flunt.Validations;
 
 namespace Apolo.Domain.Commands
 {
-    public class CreateSongCommand : CommandBase
+    public sealed class CreateSongCommand : CommandBase
     {
         public string Name { get; set; }
 
