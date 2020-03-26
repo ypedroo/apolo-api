@@ -12,7 +12,7 @@ namespace Apolo.Domain.Commands
 
         public override void Validate() => AddNotifications(new Contract()
                     .HasMaxLen(Name, 40, "Name", "Name should have no more than 40 chars")
-                    .HasMaxLen (Name, 3, "Name", "Name should have at least 3 chars")
+                    .HasMinLen(Name, 3, "Name", "Name should have at least 3 chars")
                 );
     }
 }

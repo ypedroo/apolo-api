@@ -29,9 +29,10 @@ namespace Apolo.WebApi
                 .AddDbContext<DataContext>()
                 .AddControllers();
 
-            services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<ISongRepository, SongRepository>();
-            services.AddMediatR(typeof(CreateSongCommand));
+            services.AddTransient<IUnitOfWork, UnitOfWork>()
+                    .AddTransient<ISongRepository, SongRepository>()
+                    .AddMediatR(typeof(CreateSongCommand));
+            
 
             services.AddSwaggerGen(c =>
             {
