@@ -27,7 +27,7 @@ namespace Apolo.Domain.Handlers
             {
                 var newSong = new Songs(
                     request.Name
-                    // request.LikedBy
+                    request.LikedBy
                 );
 
                 _unityOfWork.SongRepository.Add(newSong);

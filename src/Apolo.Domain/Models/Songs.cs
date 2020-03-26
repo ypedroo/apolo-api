@@ -1,20 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using Apolo.Domain.Core.Models;
 
 namespace Apolo.Domain.Models
 {
     public class Songs : Entity
     {
-        public Songs(string name)
+        public Songs(string name, IQueryable<Users> likedBy)
         {
             Id = Guid.NewGuid();
             Name = name;
-            // LikedBy = likedBy;
+            LikedBy = likedBy;
         }         
         public string Name { get; set; }
 
-        // public IEnumerable<Users> LikedBy { get; set; }
+        public IQueryable<Users> LikedBy { get; set; }
     }
 }
