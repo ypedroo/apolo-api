@@ -27,6 +27,16 @@ namespace Apolo.Infra.Data.UnitOfWork
             }
         }
 
+        public IUserRepository UserRepository
+        {
+            get
+            {
+                if(userRespository == null)
+                    userRespository = new UserRepository(_context);
+                return userRespository;
+            }
+        }
+
         public int Commit()
         {
             return _context.SaveChanges();
