@@ -17,6 +17,8 @@ namespace Apolo.WebApi.Controllers
 
         [HttpPost("create")]
         public async Task<ActionResult> CreateSong(CreateSongCommand createSongCommand)
-            => await SendCommand(createSongCommand);
+        {
+            return await SendCommand(createSongCommand);
+        }
     }
 }

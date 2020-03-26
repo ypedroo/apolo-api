@@ -7,14 +7,14 @@ namespace Apolo.Domain.Models
 {
     public class Songs : Entity
     {
-        public Songs(string name, IEnumerable<Users> likedBy)
+        public Songs(string name)
         {
             Id = Guid.NewGuid();
             Name = name;
-            LikedBy = likedBy;
+            // LikedBy = likedBy;
         }         
         public string Name { get; set; }
 
-        public IEnumerable<Users> LikedBy { get; set; }
+        // public IEnumerable<Users> LikedBy { get; set; }
     }
 }

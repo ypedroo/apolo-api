@@ -12,7 +12,6 @@ namespace Apolo.WebApi.Controllers
     public class UserController : CustomController
     {
         private readonly IUserRepository _userRepository;
-
         public UserController(IMediator mediator, IUserRepository userRepository) : base(mediator)
             => _userRepository = userRepository;
 

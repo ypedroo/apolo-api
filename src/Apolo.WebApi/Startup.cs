@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using System;
+using Apolo.Domain.Commands;
 
 namespace Apolo.WebApi
 {
@@ -30,7 +31,7 @@ namespace Apolo.WebApi
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<ISongRepository, SongRepository>();
-            services.AddMediatR(typeof(CommandBase));
+            services.AddMediatR(typeof(CreateSongCommand));
 
             services.AddSwaggerGen(c =>
             {
